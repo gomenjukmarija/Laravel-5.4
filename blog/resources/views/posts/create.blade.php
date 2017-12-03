@@ -20,7 +20,11 @@
 	    <textarea name="body" id="body" class="form-control" ></textarea>	
 	  </div>
 
-	  <button type="submit" class="btn btn-primary">Publish</button>
+	  <div class="form-group">
+	  	<button type="submit" class="btn btn-primary">Publish</button>
+	  </div>
+
+	  @include('layouts.errors')	  
 
 	</form>
 </div> 	
