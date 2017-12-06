@@ -10,7 +10,7 @@ class PostsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except(['index','show']);
+       $this->middleware('auth')->except(['index','show']);
     }
 
     public function index ()
@@ -37,11 +37,9 @@ class PostsController extends Controller
     			'body' => 'required'
     		]);
 
-    	Post::create([
-    			'title' => request('title'),
-    			'body' => request('body')
-    	]);
-
+        auth()->user()->publish(
+            new Post(request(['title', 'body']))
+        );
 
     	//and then redirect to homepage
     	return redirect('/');
