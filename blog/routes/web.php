@@ -1,15 +1,5 @@
 <?php
 
-//App::bind('App\Billing\Stripe', function () {
-//    return new \App\Billing\Stripe(config('services.stripe.secret'));
-//});
-
-App::bind('App\Billing\Stripe', function () {
-    return new \App\Billing\Stripe(config('services.stripe.secret'));
-}); //when we need single instance of class
-
-//$stripe = App::make('App\Billing\Stripe');
-//same result as under
 $stripe = resolve('App\Billing\Stripe');
 
 dd($stripe);
