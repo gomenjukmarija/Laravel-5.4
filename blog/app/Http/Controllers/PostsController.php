@@ -16,12 +16,9 @@ class PostsController extends Controller
 
     public function index (Posts $posts)
     {
-
-        $posts = $posts->all();
-
-//    	$posts = Post::latest()
-//            ->filter(request()->only(['month', 'year']))
-//            ->get();
+    	$posts = Post::latest()
+            ->filter(request()->only(['month', 'year']))
+            ->get();
 
         $archives = Post::archives();
 
@@ -49,6 +46,8 @@ class PostsController extends Controller
         auth()->user()->publish(
             new Post(request(['title', 'body']))
         );
+
+        session()->flash('message', 'Your post has now be published!');
 
     	//and then redirect to homepage
     	return redirect('/');

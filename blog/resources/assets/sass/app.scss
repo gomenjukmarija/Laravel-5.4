@@ -81,6 +81,15 @@ h6,
   border-left: .3rem solid transparent;
 }
 
+#flash-message {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+
+
+}
+
 
 /*
  * Blog name and description
